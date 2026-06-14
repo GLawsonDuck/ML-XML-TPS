@@ -1,5 +1,4 @@
 #Convert XML outputs from ML-Morph into the format used by TPS tools
-#must be run within the directory containing the file
 
 import re
 import argparse
@@ -35,7 +34,7 @@ args = parser.parse_args()
 This gives:
 args.input - ML-Morph XML input filename
 args.output - TPS output file
-args.heigh - image height
+args.height - image height
 '''
 
 data = []
