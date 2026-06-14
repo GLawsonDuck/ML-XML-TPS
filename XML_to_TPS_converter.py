@@ -89,6 +89,6 @@ for line in data:
 
                 f.write("IMAGE=" + str(image) + "\n") #write the image name
 
-                f.write("ID=" + str(id) + "\n") #identify the sequential location of the image
+                f.write("ID=" + str(image_id) + "\n") #identify the sequential location of the image
 
                 image_id += 1
