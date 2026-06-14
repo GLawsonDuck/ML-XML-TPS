@@ -2,7 +2,7 @@
 
 A Python utility to convert XML landmark files output by 
 [ML-Morph](https://github.com/agporto/ml-morph) into TPS format 
-compatible with TPSDig from SBMorphometrics(https://www.sbmorphometrics.org/soft-dataacq.html).
+compatible with TPSDig from [SBMorphometrics](https://www.sbmorphometrics.org/soft-dataacq.html).
 
 ## Background
 
