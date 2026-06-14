@@ -28,7 +28,7 @@ Arguments:
 - `--height` : image height in pixels (default: 2848)
 
 
-## Background
+## Context
 
 Written to support fish morphometrics research at the University 
 of Glasgow. Tested on XML output from ML-Morph v[1.0.0].
