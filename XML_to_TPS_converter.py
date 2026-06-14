@@ -69,7 +69,9 @@ for line in data:
         xy = [xcoord, ycoord]
         coords.append(xy)
 
-    if line[:4] == "/box": #The XML file "box" is the area in which the ML algorithm has detected an object (fish)
+    if line[:4] == "/box": 
+        #The XML file "box" is the area in which the ML algorithm has detected an object (fish)
+        #Assumes one box (fish) per image. True for tested dataset.
         newfile[imageName] = coords.copy()
 
     if line[:7] == "/image>":
