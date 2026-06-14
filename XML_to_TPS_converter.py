@@ -45,7 +45,7 @@ with open(args.input) as f:
     data = f.read().split("<")
 
 
-#counter for fish ID as used in TPS files
+#counter for image ID as used in TPS files
 image_id = 0 
 
 #empty string to hold image names extracted from XML
