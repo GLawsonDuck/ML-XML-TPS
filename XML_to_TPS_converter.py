@@ -2,26 +2,51 @@
 #must be run within the directory containing the file
 
 import re
+import argparse
 
 #Setup steps:
 
-XMLFilename = input("XML Filename?")
+parser = argparse.ArgumentParser(
+    description="Convert ML-Morph XML output to TPS format"
+)
 
-OutputFile = input("TPS output filename?")
-newfilename = str(OutputFile)
+parser.add_argument(
+    "--input",
+    required = True,
+    help = "Path to ML-Morph XML file"
+)
 
-ImageHeight = int(input("Image height in pixels? No answer defaults to 2848").strip() or 2848)
+parser.add_argument(
+    "--output",
+    required = True,
+    help = "Path for TPS output file"
+)
+
+parser.add_argument(
+    "--height",
+    type = int,
+    default = 2848,
+    help = "Image height in pixels (default = 2848)"
+)
+
+args = parser.parse_args()
+
+'''
+This gives:
+args.input - ML-Morph XML input filename
+args.output - TPS output file
+args.heigh - image height
+'''
 
 data = []
 
-
 #Read in the XML:
-with open(XMLFilename) as f:
+with open(args.input) as f:
     data = f.read().split("<")
 
 
 #counter for fish ID as used in TPS files
-id = 0 
+fish_id = 0 
 
 #empty string to hold image names extracted from XML
 imageName = "" 
@@ -39,7 +64,7 @@ for line in data:
 
     if line[:9] == "part name": #The XML files denote each individual landmark as a "part"
         xcoord = str(re.search("x=\"[0-9]*", line).group().split("\"")[1] + ".00000") #Not sure why, but TPS coordinates have a 'precision' of 5 decimal places
-        ycoord = str(str(ImageHeight - int(re.search("y=\"[0-9]*", line).group().split("\"")[1])) + ".00000") #TPS files use inverted Y coordinates
+        ycoord = str(str(args.height - int(re.search("y=\"[0-9]*", line).group().split("\"")[1])) + ".00000") #TPS files use inverted Y coordinates
         xy = [xcoord, ycoord]
         coords.append(xy)
 
@@ -51,7 +76,7 @@ for line in data:
         
 
     if line[:7] == "/images":  #End of the xml file
-        with open(newfilename, "a") as f:
+        with open(args.output, "a") as f:
 
             for image in newfile: #write the TPS file line by line
 
@@ -64,4 +89,4 @@ for line in data:
 
                 f.write("ID=" + str(id) + "\n") #identify the sequential location of the image
 
-                id += 1
+                fish_id += 1
