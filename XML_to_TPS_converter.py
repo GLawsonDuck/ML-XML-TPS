@@ -62,10 +62,10 @@ for line in data:
         imageName = re.search("IMG.*JPG", line).group() #Extract image name
 
     if line[:9] == "part name": #The XML files denote each individual landmark as a "part"
-        xcoord = str(re.search("x=\"[0-9]*", line).group().split("\"")[1] + ".00000") 
+        xcoord = str(re.search(r"x=[\"']([0-9]*)", line).group(1) + ".00000")
         #TPS coordinates have a precision of 5 decimal places by convention,
         #for sub-pixel precision in geometric morphometrics software
-        ycoord = str(str(args.height - int(re.search("y=\"[0-9]*", line).group().split("\"")[1])) + ".00000") #TPS files use inverted Y coordinates
+        ycoord = str(str(args.height - int(re.search(r"y=[\"']([0-9]*)", line).group(1))) + ".00000") #TPS files use inverted Y coordinates
         xy = [xcoord, ycoord]
         coords.append(xy)
 
