@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+  <name>ML-Morph output</name>
+  <comment/>
+  <images>
+    <image file='train/IMG_0001.JPG'>
+      <box top='120' left='200' width='800' height='400'>
+        <part name='0' x='210' y='180'/>
+        <part name='1' x='340' y='160'/>
+        <part name='2' x='480' y='155'/>
+        <part name='3' x='620' y='162'/>
+        <part name='4' x='750' y='190'/>
+        <part name='5' x='760' y='310'/>
+        <part name='6' x='620' y='350'/>
+        <part name='7' x='480' y='355'/>
+        <part name='8' x='340' y='348'/>
+        <part name='9' x='210' y='320'/>
+      </box>
+    </image>
+    <image file='train/IMG_0002.JPG'>
+      <box top='115' left='195' width='820' height='410'>
+        <part name='0' x='205' y='175'/>
+        <part name='1' x='335' y='158'/>
+        <part name='2' x='475' y='150'/>
+        <part name='3' x='615' y='157'/>
+        <part name='4' x='748' y='185'/>
+        <part name='5' x='755' y='308'/>
+        <part name='6' x='618' y='345'/>
+        <part name='7' x='475' y='352'/>
+        <part name='8' x='337' y='344'/>
+        <part name='9' x='207' y='316'/>
+      </box>
+    </image>
+  </images>
+</dataset>
